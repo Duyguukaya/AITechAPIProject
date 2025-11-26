@@ -31,5 +31,12 @@ namespace AITech.API.Controllers
             return Ok("Kategori Oluşturuldu");
         }
 
+        [HttpPut]
+        public async Task<IActionResult> Update(UpdateCategoryDto categoryDto)
+        {
+            await _categoryService.TUpdateAsync(categoryDto);
+            return Ok("Kategori güncellendi.");
+        }
+
     }
 }
