@@ -1,5 +1,6 @@
 ﻿using AITech.WebUI.DTOs.CategoryDtos;
 using Newtonsoft.Json;
+using System.Text;
 
 
 namespace AITech.WebUI.Services.CategoryServices
@@ -14,14 +15,17 @@ namespace AITech.WebUI.Services.CategoryServices
             _client = client;
         }
 
-        public Task CreateAsync(CreateCategoryDto categoryDto)
+        public async Task CreateAsync(CreateCategoryDto categoryDto)
         {
-            throw new NotImplementedException();
-        }
+            var json = JsonConvert.SerializeObject(categoryDto);
+            var content = new StringContent(json,Encoding.UTF8, "application/json");
 
-        public Task DeleteAsync(int id)
+            await _client.PostAsync("categories", content);
+       }
+
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            await _client.DeleteAsync("categories/"+ id);
         }
 
         public async Task<List<ResultCategoryDto>> GetAllAsync()
@@ -41,14 +45,27 @@ namespace AITech.WebUI.Services.CategoryServices
 
         }
 
-        public Task<UpdateCategoryDto> GetByAsync(int id)
+        public async Task<UpdateCategoryDto> GetByAsync(int id)
         {
-            throw new NotImplementedException();
+            var response = await _client.GetAsync("categories/" + id);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Kategori alınamadı");
+            }
+
+            var jsonContent = await response.Content.ReadAsStringAsync();
+
+            var values = JsonConvert.DeserializeObject<UpdateCategoryDto>(jsonContent);
+
+            return values;
         }
 
-        public Task UpdateAsync(UpdateCategoryDto categoryDto)
+        public async Task UpdateAsync(UpdateCategoryDto categoryDto)
         {
-            throw new NotImplementedException();
+            var json = JsonConvert.SerializeObject(categoryDto);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            await _client.PutAsync("categories", content);
         }
     }
 }
