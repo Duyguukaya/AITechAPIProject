@@ -1,4 +1,5 @@
-﻿using AITech.WebUI.Services.CategoryServices;
+﻿using AITech.WebUI.DTOs.CategoryDtos;
+using AITech.WebUI.Services.CategoryServices;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -12,5 +13,20 @@ namespace AITech.WebUI.Areas.Admin.Controllers
             var categories = await _categoryService.GetAllAsync();
             return View(categories);
         }
+
+        [HttpGet] //yazmasakta olurdu. api de mutlaka yazılmalı
+        public async Task<IActionResult> CreateCategory()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateCategory(CreateCategoryDto categoryDto)
+        {
+            await _categoryService.CreateAsync(categoryDto);
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
