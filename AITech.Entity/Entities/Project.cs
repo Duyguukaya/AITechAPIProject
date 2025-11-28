@@ -8,7 +8,7 @@ namespace AITech.Entity.Entities
         public string ImageUrl { get; set; }
 
         public int CategoryId { get; set; }
-        Category Category { get; set; }
+        public Category Category { get; set; }
 
     }
 }
