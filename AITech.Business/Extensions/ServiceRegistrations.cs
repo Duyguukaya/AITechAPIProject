@@ -1,4 +1,5 @@
-﻿using AITech.Business.Services.AboutServices;
+﻿using AITech.Business.Services.AboutItemServices;
+using AITech.Business.Services.AboutServices;
 using AITech.Business.Services.BannerServices;
 using AITech.Business.Services.CategoryServices;
 using AITech.Business.Services.ProjectServices;
@@ -15,6 +16,7 @@ namespace AITech.Business.Extensions
             services.AddScoped<IProjectService, ProjectService>();
             services.AddScoped<IBannerService, BannerService>();
             services.AddScoped<IAboutService, AboutService>();
+            services.AddScoped<IAboutItemService, AboutItemService>();
         }
     }
 }

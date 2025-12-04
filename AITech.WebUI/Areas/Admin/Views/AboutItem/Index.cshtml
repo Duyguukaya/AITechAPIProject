@@ -1,0 +1,34 @@
+﻿
+@model List<ResultAboutItemsDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var count = 0;
+}
+
+<h3>Kategori Maddeleri</h3>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+
+        <tr>
+            <td>@count</td>
+            <td> @item.Title</td>
+            <td>
+                <a href="/Admin/AboutItem/DeleteAboutItem/@item.Id" class="btn btn-danger">Sil</a>
+                <a href="/Admin/AboutItem/UpdateAboutItem/@item.Id" class="btn btn-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a href="/Admin/AboutItem/CreateAboutItem" class="btn btn-primary">Yeni Kategori Maddesi Oluştur</a>
+

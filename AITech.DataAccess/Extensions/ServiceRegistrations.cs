@@ -1,4 +1,5 @@
-﻿using AITech.DataAccess.Repositories.AboutRepositories;
+﻿using AITech.DataAccess.Repositories.AboutItemRepositories;
+using AITech.DataAccess.Repositories.AboutRepositories;
 using AITech.DataAccess.Repositories.BannerRepositories;
 using AITech.DataAccess.Repositories.CategoryRepositories;
 using AITech.DataAccess.Repositories.ProjectRepositories;
@@ -15,6 +16,7 @@ namespace AITech.DataAccess.Extensions
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<IBannerRepository, BannerRepository>();
             services.AddScoped<IAboutRepository, AboutRepository>();
+            services.AddScoped<IAboutItemRepository, AboutItemRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }

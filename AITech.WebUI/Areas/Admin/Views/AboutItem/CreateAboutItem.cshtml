@@ -1,0 +1,18 @@
+﻿@model CreateAboutItemsDto
+@{
+    ViewData["Title"] = "CreateAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Yeni Hakkımda Maddesi Oluşturma</h3>
+
+<form method="post">
+    <label>Hakkında Başlığı</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <span class="text-danger" asp-validation-for="Title"></span>
+    <br />
+
+
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+
