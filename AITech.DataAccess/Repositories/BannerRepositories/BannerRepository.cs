@@ -1,0 +1,29 @@
+﻿using AITech.DataAccess.Context;
+using AITech.DataAccess.Repositories.GenericRepositories;
+using AITech.Entity.Entities;
+
+namespace AITech.DataAccess.Repositories.BannerRepositories
+{
+    public class BannerRepository : GenericRepository<Banner>, IBannerRepository
+    {
+       
+        private readonly AppDbContext _context;
+
+        public BannerRepository(AppDbContext context) : base(context)
+        {
+            _context = context;
+        }
+
+        public async Task MakeActiveAsync(Banner banner)
+        {
+            banner.IsActive = true;
+            _context.Update(banner);
+        }
+
+        public async Task MakePassiveAsync(Banner banner)
+        {
+            banner.IsActive = false;
+            _context.Update(banner);
+        }
+    }
+}

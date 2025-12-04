@@ -1,0 +1,46 @@
+﻿@model List<ResultBannerDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var count = 0;
+}
+
+<h3>Öne Çıkan Alanlar</h3>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+
+        <tr>
+            <th>@count</th>
+            <td><img src="@item.ImageUrl" style="height:75px; width:75px; border-radius:50%" alt="Banner görseli" />  @item.Title</td>
+            <th>@item.Description</th>
+            <th>@(item.IsActive ? "Aktif" : "Pasif")</th>
+            <th>
+                <a href="/Admin/Banner/DeleteBanner/@item.Id" class="btn btn-danger">Sil</a>
+                <a href="/Admin/Banner/UpdateBanner/@item.Id" class="btn btn-info">Güncelle</a>
+                @if (item.IsActive)
+                {
+                    <a href="/Admin/Banner/MakePassive/@item.Id" class="btn btn-secondary">Pasif Yap</a>
+                } 
+                else
+                {
+                  <a href="/Admin/Banner/MakeActive/@item.Id" class="btn btn-success">Aktif Yap</a>
+                }
+                
+            </th>
+        </tr>
+    }
+</table>
+
+<a href="/Admin/Banner/CreateBanner" class="btn btn-primary">Yeni Banner Oluştur</a>
+
