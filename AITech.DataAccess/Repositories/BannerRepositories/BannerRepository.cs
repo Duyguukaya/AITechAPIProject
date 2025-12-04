@@ -6,12 +6,8 @@ namespace AITech.DataAccess.Repositories.BannerRepositories
 {
     public class BannerRepository : GenericRepository<Banner>, IBannerRepository
     {
-       
-        private readonly AppDbContext _context;
-
         public BannerRepository(AppDbContext context) : base(context)
         {
-            _context = context;
         }
 
         public async Task MakeActiveAsync(Banner banner)
