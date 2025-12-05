@@ -2,6 +2,7 @@
 using AITech.DataAccess.Repositories.AboutRepositories;
 using AITech.DataAccess.Repositories.BannerRepositories;
 using AITech.DataAccess.Repositories.CategoryRepositories;
+using AITech.DataAccess.Repositories.ChooseRepositories;
 using AITech.DataAccess.Repositories.ProjectRepositories;
 using AITech.DataAccess.UnitOfWorks;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ namespace AITech.DataAccess.Extensions
             services.AddScoped<IBannerRepository, BannerRepository>();
             services.AddScoped<IAboutRepository, AboutRepository>();
             services.AddScoped<IAboutItemRepository, AboutItemRepository>();
+            services.AddScoped<IChooseRepository, ChooseRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }

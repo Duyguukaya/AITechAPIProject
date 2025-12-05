@@ -1,0 +1,43 @@
+﻿@model UpdateChooseDto
+@{
+    ViewData["Title"] = "UpdateChoose";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3> Choose Güncelleme Sayfası</h3>
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+    <label>Hakkında Başlığı</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <span class="text-danger" asp-validation-for="Title"></span>
+    <br />
+    <label>Resim Url</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <span class="text-danger" asp-validation-for="ImageUrl"></span>
+
+    <br />
+    <label>Açıklama</label>
+    <input type="text" asp-for="Description" class="form-control" />
+    <span class="text-danger" asp-validation-for="Description"></span>
+
+    <br />
+    <label>Madde 1</label>
+    <input type="text" asp-for="Item1" class="form-control" />
+    <span class="text-danger" asp-validation-for="Item1"></span>
+
+    <br />
+    <label>Madde 2</label>
+    <input type="text" asp-for="Item2" class="form-control" />
+    <span class="text-danger" asp-validation-for="Item2"></span>
+
+    <br />
+    <label>Madde 3</label>
+    <input type="text" asp-for="Item3" class="form-control" />
+    <span class="text-danger" asp-validation-for="Item3"></span>
+
+    <br />
+
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+

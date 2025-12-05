@@ -23,16 +23,16 @@ namespace AITech.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateAboutDto categoryDto)
+        public async Task<IActionResult> Create(CreateAboutDto aboutDto)
         {
-            await _aboutService.TCreateAsync(categoryDto);
+            await _aboutService.TCreateAsync(aboutDto);
             return Created();
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(UpdateAboutDto categoryDto)
+        public async Task<IActionResult> Update(UpdateAboutDto aboutDto)
         {
-            await _aboutService.TUpdateAsync(categoryDto);
+            await _aboutService.TUpdateAsync(aboutDto);
             return NoContent();
         }
 
