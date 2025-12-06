@@ -3,6 +3,7 @@ using AITech.Business.Services.AboutServices;
 using AITech.Business.Services.BannerServices;
 using AITech.Business.Services.CategoryServices;
 using AITech.Business.Services.ChooseServices;
+using AITech.Business.Services.ContactServices;
 using AITech.Business.Services.ProjectServices;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,6 +20,7 @@ namespace AITech.Business.Extensions
             services.AddScoped<IAboutService, AboutService>();
             services.AddScoped<IAboutItemService, AboutItemService>();
             services.AddScoped<IChooseService, ChooseService>();
+            services.AddScoped<IContactService, ContactService>();
         }
     }
 }
