@@ -1,0 +1,35 @@
+﻿@model List<ResultFAQDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var count = 0;
+}
+
+<h3>Sıkça Sorulan Sorular</h3>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Soru</th>
+        <th>Cevap</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        count++;
+
+        <tr>
+            <td>@count</td>
+            <td>@item.Question</td>
+            <td>@item.Answer</td>
+            <td>
+                <a href="/Admin/FAQ/DeleteFAQ/@item.Id" class="btn btn-danger">Sil</a>
+                <a href="/Admin/FAQ/UpdateFAQ/@item.Id" class="btn btn-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a href="/Admin/FAQ/CreateFAQ" class="btn btn-primary">Yeni Soru-Cevap Oluştur</a>
+

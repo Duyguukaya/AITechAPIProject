@@ -4,6 +4,7 @@ using AITech.WebUI.Services.BannerServices;
 using AITech.WebUI.Services.CategoryServices;
 using AITech.WebUI.Services.ChooseServices;
 using AITech.WebUI.Services.ContactServices;
+using AITech.WebUI.Services.FAQServices;
 using AITech.WebUI.Services.GeminiServices;
 using AITech.WebUI.Services.ProjectServices;
 using FluentValidation;
@@ -24,6 +25,7 @@ namespace AITech.WebUI.Extensions
             services.AddScoped<IAboutItemService, AboutItemService>();
             services.AddScoped<IChooseService, ChooseService>();
             services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IFAQService, FAQService>();
 
             services.AddFluentValidationAutoValidation()
                 .AddFluentValidationClientsideAdapters()

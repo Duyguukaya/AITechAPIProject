@@ -1,0 +1,23 @@
+﻿@model CreateFAQDto
+
+@{
+    ViewData["Title"] = "CreateFAQ";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h3>Yeni S.S.S Oluşturma Sayfası</h3>
+
+
+<form method="post">
+    <label>Soru</label>
+    <input type="text" asp-for="Question" class="form-control" />
+    <span class="text-danger" asp-validation-for="Question"></span>
+    <br />
+    <label>Cevap</label>
+    <input type="text" asp-for="Answer" class="form-control" />
+    <span class="text-danger" asp-validation-for="Answer"></span>
+
+    <br />
+ 
+
+    <button class="btn btn-primary">Kaydet</button>
+</form>
