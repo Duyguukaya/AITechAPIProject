@@ -9,6 +9,7 @@ using AITech.WebUI.Services.FeatureServices;
 using AITech.WebUI.Services.GeminiServices;
 using AITech.WebUI.Services.ProjectServices;
 using AITech.WebUI.Services.SocialServices;
+using AITech.WebUI.Services.TestimonialServices;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using System.Reflection;
@@ -30,6 +31,7 @@ namespace AITech.WebUI.Extensions
             services.AddScoped<IFAQService, FAQService>();
             services.AddScoped<IFeatureService, FeatureService>();
             services.AddScoped<ISocialService, SocialService>();
+            services.AddScoped<ITestimonialService, TestimonialService>();
 
             services.AddFluentValidationAutoValidation()
                 .AddFluentValidationClientsideAdapters()
