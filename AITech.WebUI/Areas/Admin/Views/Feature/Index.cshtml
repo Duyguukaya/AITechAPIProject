@@ -1,0 +1,37 @@
+﻿@model List<ResultFeatureDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var count = 0;
+}
+<h3>Özellikler</h3>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>İkon</th>
+        <th>Açıklama</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+
+        <tr>
+            <td>@count</td>
+            <td>@item.Ttile</td>
+            <td>@item.Icon</td>
+            <td>@item.Description</td>
+            <td>
+                <a href="/Admin/Feature/DeleteFeature/@item.Id" class="btn btn-danger">Sil</a>
+                <a href="/Admin/Feature/UpdateFeature/@item.Id" class="btn btn-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a href="/Admin/Feature/CreateFeature" class="btn btn-primary">Yeni Feature Oluştur</a>
+
