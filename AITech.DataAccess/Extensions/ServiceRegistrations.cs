@@ -7,6 +7,7 @@ using AITech.DataAccess.Repositories.ContactRepositories;
 using AITech.DataAccess.Repositories.FAQRepositories;
 using AITech.DataAccess.Repositories.FeatureRepositories;
 using AITech.DataAccess.Repositories.ProjectRepositories;
+using AITech.DataAccess.Repositories.SocialRepositories;
 using AITech.DataAccess.UnitOfWorks;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -25,6 +26,7 @@ namespace AITech.DataAccess.Extensions
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IFAQRepository, FAQRepository>();
             services.AddScoped<IFeatureRepository, FeatureRepository>();
+            services.AddScoped<ISocialRepository, SocialRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
