@@ -1,13 +1,15 @@
 ﻿using AITech.Entity.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore; 
 
 namespace AITech.DataAccess.Context
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext : IdentityDbContext<AppUser, AppRole, int>
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+       
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            
+
         }
 
         public DbSet<About> Abouts { get; set; }
