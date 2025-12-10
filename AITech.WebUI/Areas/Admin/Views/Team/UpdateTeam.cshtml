@@ -1,0 +1,38 @@
+﻿@model UpdateTeamDto
+@{
+    ViewData["Title"] = "UpdateTeam";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h3>Takım Arkadaşı Güncelleme Sayfası</h3>
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+    <label>Fotoğraf Url</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" />
+
+    <br />
+    <label>Unvan</label>
+    <input type="text" asp-for="Title" class="form-control" />
+
+    <br />
+    <label>Twitter Url</label>
+    <input type="text" asp-for="TwiterUrl" class="form-control" />
+
+    <br />
+    <label>Instagram Url</label>
+    <input type="text" asp-for="InstagramUrl" class="form-control" />
+
+    <br />
+    <label>Linkedin Url</label>
+    <input type="text" asp-for="LinledinUrl" class="form-control" />
+
+    <br />
+    <label>Github Url</label>
+    <input type="text" asp-for="GithubUrl" class="form-control" />
+
+    <br />
+ 
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+
+

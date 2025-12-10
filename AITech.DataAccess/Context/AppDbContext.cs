@@ -21,5 +21,6 @@ namespace AITech.DataAccess.Context
         public DbSet<Project> Projects { get; set; }
         public DbSet<Social> Socials { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Team> Teams { get; set; }
     }
 }

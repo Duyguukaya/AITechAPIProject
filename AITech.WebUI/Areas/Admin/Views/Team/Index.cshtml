@@ -1,0 +1,44 @@
+﻿
+@model List<ResultTeamDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var count = 0;
+}
+
+<h3>Takım Arkadaşları</h3>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Fotoğraf Url</th>
+        <th>Başlık</th>
+        <th>Twitter Url</th>
+        <th>Instagram Url</th>
+        <th>Linkedin Url</th>
+        <th>Github Url</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+
+        <tr>
+            <td>@count</td>
+            <td>@item.ImageUrl</td>
+            <td>@item.Title</td>
+            <td>@item.TwiterUrl</td>
+            <td>@item.InstagramUrl</td>
+            <td>@item.LinledinUrl</td>
+            <td>@item.GithubUrl</td>
+            <td>
+                <a href="/Admin/Team/DeleteTeam/@item.Id" class="btn btn-danger">Sil</a>
+                <a href="/Admin/Team/UpdateTeam/@item.Id" class="btn btn-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a href="/Admin/Team/CreateTeam" class="btn btn-primary">Yeni Takım Arkadaşı Oluştur</a>
+
