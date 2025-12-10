@@ -1,4 +1,4 @@
-﻿
+﻿@model List<ResultBannerDto>
 @*
   _BannerComponent
 *@
@@ -6,36 +6,79 @@
 <div class="container-fluid pt-5 bg-primary hero-header mb-5">
     <div class="container pt-5">
         <div class="row g-5 pt-5">
-            <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                <div class="btn btn-sm border rounded-pill text-white px-3 mb-3 animated slideInRight">AI.Tech</div>
-                <h1 class="display-4 text-white mb-4 animated slideInRight">Artificial Intelligence for Your Business</h1>
-                <p class="text-white mb-4 animated slideInRight">
-                    Tempor rebum no at dolore lorem clita rebum rebum ipsum
-                    rebum stet dolor sed justo kasd. Ut dolor sed magna dolor sea diam. Sit diam sit
-                </p>
-                <a href="" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInRight">Read More</a>
-                <a href="" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
-            </div>
-            <div class="col-lg-6 align-self-end text-center text-lg-end">
-                <img class="img-fluid" src="~/AI-html-1.0.0/img/hero-img.png" alt="">
-            </div>
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+                    <div class="btn btn-sm border rounded-pill text-white px-3 mb-3 animated slideInRight">AI.Tech</div>
+                    <h1 class="display-4 text-white mb-4 animated slideInRight">@item.Title</h1>
+                    <p class="text-white mb-4 animated slideInRight">
+                        @item.Description
+                    </p>
+
+                    <a href="#"
+                       class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInRight"
+                       data-bs-toggle="modal"
+                       data-bs-target="#readMoreModal">Daha Fazla Oku</a>
+
+                    <a href="/Contact/Index" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Bize Ulaşın</a>
+                </div>
+                <div class="col-lg-6 align-self-end text-center text-lg-end">
+                    <img class="img-fluid" src="@item.ImageUrl" alt="">
+                </div>
+            }
         </div>
     </div>
 </div>
->
+
 <div class="modal fade" id="searchModal" tabindex="-1">
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content" style="background: rgba(20, 24, 62, 0.7);">
             <div class="modal-header border-0">
                 <button type="button" class="btn btn-square bg-white btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                        aria-label="Kapat"></button>
             </div>
             <div class="modal-body d-flex align-items-center justify-content-center">
                 <div class="input-group" style="max-width: 600px;">
                     <input type="text" class="form-control bg-transparent border-light p-3"
-                           placeholder="Type search keyword">
+                           placeholder="Aranacak kelimeyi giriniz...">
                     <button class="btn btn-light px-4"><i class="bi bi-search"></i></button>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="readMoreModal" tabindex="-1" aria-labelledby="readMoreModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="readMoreModalLabel">Yapay Zeka Teknolojileri Hakkında</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="mb-3 text-primary">Neden AI.Tech?</h4>
+                        <p>
+                            Yapay zeka (AI), makinelerin deneyimden öğrenmesini, yeni girdilere uyum sağlamasını ve insan benzeri görevleri yerine getirmesini mümkün kılar.
+                            AI.Tech olarak, derin öğrenme ve doğal dil işleme gibi teknolojileri kullanarak işletmenizin potansiyelini en üst düzeye çıkarıyoruz.
+                        </p>
+                        <hr />
+                        <h5 class="mb-2">Hizmetlerimizle Neler Kazanacaksınız?</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Operasyonel maliyetlerde düşüş</li>
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Veriye dayalı karar alma mekanizmaları</li>
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i> 7/24 Müşteri desteği sağlayan akıllı botlar</li>
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Otomatikleştirilmiş iş süreçleri</li>
+                        </ul>
+                        <p class="mt-3 text-muted">
+                            Teknolojinin hızına ayak uydurmak değil, ona yön vermek için bizimle çalışın. Daha detaylı bilgi için projeler sayfamızı ziyaret edebilirsiniz.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
             </div>
         </div>
     </div>

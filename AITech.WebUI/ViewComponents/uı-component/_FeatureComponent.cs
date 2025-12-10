@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AITech.WebUI.Services.FeatureServices;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace AITech.WebUI.ViewComponents.uı_component
 {
-    public class _FeatureComponent : ViewComponent
+    public class _FeatureComponent(IFeatureService _featureService) : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var feature = await _featureService.GetAllAsync();
+            return View(feature);
         }
     }
 }

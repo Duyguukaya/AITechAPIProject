@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AITech.WebUI.Services.FAQServices;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AITech.WebUI.ViewComponents.uı_component
 {
-    public class _FAQComponent:ViewComponent
+    public class _FAQComponent(IFAQService _faqService) : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+  
+            var values = await _faqService.GetAllAsync();
+            return View(values);
         }
     }
 }

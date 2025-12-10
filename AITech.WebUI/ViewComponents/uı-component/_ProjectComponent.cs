@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AITech.WebUI.Services.ProjectServices; 
+using Microsoft.AspNetCore.Mvc;
 
 namespace AITech.WebUI.ViewComponents.uı_component
 {
-    public class _ProjectComponent:ViewComponent
+
+    public class _ProjectComponent(IProjectService _projectService) : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var values = await _projectService.GetAllAsync();
+  
+            return View(values);
         }
     }
 }
