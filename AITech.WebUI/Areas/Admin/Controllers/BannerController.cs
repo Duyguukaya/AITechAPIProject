@@ -1,10 +1,12 @@
 ﻿using AITech.WebUI.DTOs.BannerDtos;
 using AITech.WebUI.Services.BannerServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AITech.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class BannerController(IBannerService _bannerService) : Controller
     {
         public async Task<IActionResult> Index()

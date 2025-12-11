@@ -1,10 +1,12 @@
 ﻿using AITech.WebUI.DTOs.TestimonialDtos;
 using AITech.WebUI.Services.TestimonialServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AITech.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class TestimonialController(ITestimonialService _testimonialService) : Controller
     {
         public async Task<IActionResult> Index()

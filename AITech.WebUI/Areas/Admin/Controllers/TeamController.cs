@@ -1,10 +1,12 @@
 ﻿using AITech.WebUI.DTOs.TeamDtos;
 using AITech.WebUI.Services.TeamServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AITech.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class TeamController(ITeamService _teamService) : Controller
     {
         public async Task<IActionResult> Index()

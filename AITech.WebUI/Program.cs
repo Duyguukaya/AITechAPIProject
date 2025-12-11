@@ -4,9 +4,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+
+
 builder.Services.AddHttpClient();
 builder.Services.AddUIServices();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication("AdminAuth")
+    .AddCookie("AdminAuth", options =>
+    {
+        options.LoginPath = "/Login/Index";
+        options.AccessDeniedPath = "/Login/Index";
+    });
 
 var app = builder.Build();
 
@@ -23,8 +32,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
-
+app.UseAuthentication(); // Kimlik kontrolü
+app.UseAuthorization();  // Yetki kontrolü
 
 app.MapControllerRoute(
   name: "areas",

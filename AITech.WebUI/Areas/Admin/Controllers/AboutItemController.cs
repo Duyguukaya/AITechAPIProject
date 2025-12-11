@@ -1,10 +1,12 @@
 ﻿using AITech.WebUI.DTOs.AboutItemsDtos;
 using AITech.WebUI.Services.AboutItemServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AITech.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class AboutItemController(IAboutItemService _aboutItemService) : Controller
     {
         public async Task<IActionResult> Index()

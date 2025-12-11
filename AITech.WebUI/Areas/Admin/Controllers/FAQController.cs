@@ -1,10 +1,12 @@
 ﻿using AITech.WebUI.DTOs.FAQDtos;
 using AITech.WebUI.Services.FAQServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AITech.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class FAQController(IFAQService _fAQService): Controller
     {
         public async Task<IActionResult> Index()

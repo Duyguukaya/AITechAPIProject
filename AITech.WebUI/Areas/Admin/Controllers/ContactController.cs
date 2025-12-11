@@ -1,10 +1,12 @@
 ﻿using AITech.WebUI.DTOs.ContactDtos;
 using AITech.WebUI.Services.ContactServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AITech.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class ContactController(IContactService _contactService) : Controller
     {
         public async Task<IActionResult> Index()

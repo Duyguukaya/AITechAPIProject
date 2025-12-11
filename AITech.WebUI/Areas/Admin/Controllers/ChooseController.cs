@@ -1,10 +1,12 @@
 ﻿using AITech.WebUI.DTOs.ChooseDtos;
 using AITech.WebUI.Services.ChooseServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AITech.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class ChooseController(IChooseService _chooseService) : Controller
     {
         public async Task<IActionResult> Index()

@@ -1,10 +1,12 @@
 ﻿using AITech.WebUI.DTOs.FeatureDtos;
 using AITech.WebUI.Services.FeatureServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AITech.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class FeatureController(IFeatureService _featureService) : Controller
     {
         public async Task<IActionResult> Index()
