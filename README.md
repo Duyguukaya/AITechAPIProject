@@ -3,7 +3,7 @@
 ![.NET Core](https://img.shields.io/badge/.NET%20Core-8.0-purple)
 ![ASP.NET Web API](https://img.shields.io/badge/ASP.NET-Web%20API-blue)
 ![Entity Framework Core](https://img.shields.io/badge/Entity%20Framework-Core-green)
-![Bootstrap 5](https://img.shields.io/badge/Bootstrap-5-orange)
+![ViewComponents](https://img.shields.io/badge/ASP.NET-ViewComponents-red)
 ![Status](https://img.shields.io/badge/Status-In%20Development-yellow)
 
 Bu proje, **.NET 8.0** teknolojisi kullanılarak geliştirilmiş, **N-Katmanlı Mimari (N-Tier Architecture)** yapısına sahip kapsamlı bir kurumsal web uygulamasıdır. Proje, veritabanı işlemlerini yöneten bir **Web API** ve bu API'yi tüketen bir **WebUI (MVC)** katmanından oluşmaktadır.
@@ -12,25 +12,29 @@ Bu proje, **.NET 8.0** teknolojisi kullanılarak geliştirilmiş, **N-Katmanlı 
 
 ## 🏗️ Mimari ve Proje Yapısı
 
-Proje, Sorumlulukların Ayrılığı (SoC) prensibine uygun olarak aşağıdaki katmanlara ayrılmıştır:
+Proje, **Sorumlulukların Ayrılığı (SoC)** prensibine uygun olarak modüler bir yapıda tasarlanmıştır:
 
-* **📂 AITech.Entity:** Veritabanı tablolarına karşılık gelen POCO sınıfları. (`AppUser`, `Category`, `Project` vb.)
+* **📂 AITech.Entity:** Veritabanı tablolarına karşılık gelen POCO sınıfları (`AppUser`, `Category` vb.).
 * **📂 AITech.DataAccess:** Entity Framework Core Context yapılandırması ve Repository desenleri.
 * **📂 AITech.Business:** İş kuralları, Validasyonlar (FluentValidation) ve Service katmanı.
 * **📂 AITech.DTO:** API ve UI arasında veri taşıyan nesneler (Data Transfer Objects).
 * **📂 AITech.API:** Veritabanı ile konuşan ve dış dünyaya JSON formatında veri sunan Backend servisi.
-* **📂 AITech.WebUI:** Kullanıcının etkileşime girdiği, API'den gelen verileri işleyen Admin Paneli ve Arayüz (Mazer Admin Template).
+* **📂 AITech.WebUI:** Kullanıcı arayüzü ve yönetim paneli.
+  * **Areas:** Yönetim paneli (Admin) ve kullanıcı arayüzü birbirinden izole edilmiştir.
+  * **ViewComponents:** Sidebar, Navbar gibi tekrar eden yapılar `ViewComponent` mimarisi ile modüler hale getirilmiştir.
 
 ---
 
 ## 💻 Kullanılan Teknolojiler
 
 * **Framework:** .NET 8.0
-* **ORM:** Entity Framework Core (Code First Yaklaşımı)
+* **Mimari:** N-Tier Architecture, MVC (Model-View-Controller)
+* **ORM:** Entity Framework Core (Code First)
 * **Veritabanı:** MS SQL Server
-* **Kimlik Doğrulama:** ASP.NET Core Identity (Kullanıcı Giriş/Kayıt/Rol Yönetimi)
-* **Validasyon:** FluentValidation
+* **Kimlik Doğrulama:** ASP.NET Core Identity & Cookie Authentication
 * **Frontend:** HTML5, CSS3, Bootstrap 5, Razor View Engine
+* **UI Components:** **ASP.NET Core ViewComponents**
+* **Validasyon:** FluentValidation
 * **Admin Template:** Mazer Dashboard
 * **API İletişimi:** HttpClient
 
@@ -40,12 +44,15 @@ Proje, Sorumlulukların Ayrılığı (SoC) prensibine uygun olarak aşağıdaki 
 
 - **🔐 Gelişmiş Kimlik Doğrulama:**
   - Kullanıcı Kayıt (Register) ve Giriş (Login) işlemleri.
-  - Güvenli şifreleme ve Identity altyapısı.
-  - API üzerinden doğrulama ve Cookie tabanlı oturum yönetimi.
+  - API üzerinden güvenli doğrulama ve Cookie tabanlı oturum yönetimi.
   
-- **⚙️ Dinamik Yönetim Paneli:**
+- **⚙️ Modüler Yönetim Paneli (Areas):**
+  - Proje, `Admin` Area'sı altında izole edilmiş bir yönetim paneline sahiptir.
+  - Sidebar ve menü yapıları **ViewComponent** kullanılarak dinamikleştirilmiştir.
+  
+- **📂 İçerik Yönetimi (CRUD):**
   - Kategori, Proje, Referans, Takım Arkadaşları gibi tüm içeriklerin yönetimi.
-  - **CRUD İşlemleri:** Ekleme, Silme, Güncelleme ve Listeleme.
+  - Ekleme, Silme, Güncelleme ve Listeleme işlemleri.
   
 - **🌐 API Tabanlı İletişim:**
   - Web arayüzü veritabanına doğrudan erişmez; tüm işlemler API üzerinden güvenli bir şekilde gerçekleştirilir.
