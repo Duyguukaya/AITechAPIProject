@@ -55,7 +55,7 @@ Proje, Sorumlulukların Ayrılığı (SoC) prensibine uygun olarak aşağıdaki 
 Projenin çalışan haline ait bazı görüntüler aşağıdadır:
 
 <div align="center">
-
+<br>
 <h3>📂 Anasayfa</h3>
   <p>
     <img width="1897" height="824" alt="Ekran görüntüsü 2025-12-11 032216" src="https://github.com/user-attachments/assets/3a443fa0-e7c6-4e26-9c07-e21266649991" />
@@ -68,7 +68,9 @@ Projenin çalışan haline ait bazı görüntüler aşağıdadır:
 <img width="1894" height="826" alt="Ekran görüntüsü 2025-12-11 032335" src="https://github.com/user-attachments/assets/a5c97277-2db4-4569-a2d5-41dc6c58428b" />
 <img width="1896" height="829" alt="Ekran görüntüsü 2025-12-11 032348" src="https://github.com/user-attachments/assets/eb375f0b-b016-4c47-82e0-9e266391012e" />
   </p>
-
+<br>
+<br>
+<br>
 
   <h3>🔐 Giriş ve Kayıt Ekranları</h3>
   <p>
@@ -77,6 +79,8 @@ Projenin çalışan haline ait bazı görüntüler aşağıdadır:
    <img width="1919" height="829" alt="Ekran görüntüsü 2025-12-11 032436" src="https://github.com/user-attachments/assets/5f3d2ae0-555c-49d8-9b3b-ebe223d8aee5" />
   </p>
 
+  <br>
+  <br>
   <br>
 
   <h3>📊 Admin Yönetim Paneli (Dashboard)</h3>
